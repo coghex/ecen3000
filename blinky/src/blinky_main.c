@@ -27,6 +27,8 @@
 #include "timer32.h"
 #include "gpio.h"
 
+int freq= 1; //in Hz
+float duty=0.5; //between 0 and 1 less than .5 makes the on longer more makes the off longer
 static const uint8_t segmentlut[10] =
 {
 	   // FCPBAGED
@@ -103,7 +105,7 @@ int main (void)
   {
 	/* Each time we wake up... */
 	/* Check TimeTick to see whether to set or clear the LED I/O pin */
-	if ( (timer32_0_counter%(LED_TOGGLE_TICKS/COUNT_MAX)) < ((LED_TOGGLE_TICKS/COUNT_MAX)/2) )
+	if ( (timer32_0_counter%(LED_TOGGLE_TICKS/(freq*COUNT_MAX))) < ((duty*LED_TOGGLE_TICKS/(freq*COUNT_MAX))) )
 	{
 	  GPIOSetValue( LED_PORT, LED_BIT, LED_OFF );
 	  on=0;
