@@ -1,8 +1,15 @@
 /*
  * GENERATED FILE - DO NOT EDIT
- * (C) Code Red Technologies Ltd, 2008-9
- * Generated linker script library include file for Redlib (semihost) 
- * (created from redlib_semihost_c.ld (LPCXpresso v3.6.2 [Build 279] [29/01/2011] ) on Mon Feb 07 13:11:21 PST 2011)
-*/
+ * (c) Code Red Technologies Ltd, 2008-2014
+ * (c) NXP Semiconductors 2013-2014
+ * Generated linker script file for LPC1114/302
+ * Created from LibIncTemplate.ld (LPCXpresso v6.1 (2 [Build 177] [2013-11-28] ))
+ * By LPCXpresso v6.1.2 [Build 177] [2013-11-28]  on Tue Feb 18 12:26:48 MST 2014
+ */
 
-GROUP(libcr_semihost.a libcr_c.a libcr_eabihelpers.a)
+
+ GROUP(
+ libcr_semihost.a
+ libcr_c.a
+ libcr_eabihelpers.a
+ )
