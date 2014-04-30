@@ -29,7 +29,7 @@ all: Lab_3.axf
 Lab_3.axf: $(OBJS) $(USER_OBJS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: MCU Linker'
-	arm-none-eabi-gcc -nostdlib -L"Z:\win7folders\Documents\LPCXpresso_5.2.6_2137\workspace\CMSISv2p00_LPC11xx\Debug" -Xlinker -Map="Lab_3.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "Lab_3_Debug.ld" -o "Lab_3.axf" $(OBJS) $(USER_OBJS) $(LIBS)
+	arm-none-eabi-gcc -nostdlib -Xlinker -Map="Lab_3.map" -Xlinker --gc-sections -mcpu=cortex-m0 -mthumb -T "Lab_3_Debug.ld" -o "Lab_3.axf" $(OBJS) $(USER_OBJS) $(LIBS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 	$(MAKE) --no-print-directory post-build

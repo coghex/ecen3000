@@ -1,9 +1,10 @@
 /*
  * GENERATED FILE - DO NOT EDIT
- * (C) Code Red Technologies Ltd, 2008-2014
- * Generated linker script file for LPC1114/302
- * Created from generic_c.ld (vLPCXpresso v5.2 (6 [Build 2137] [2013-07-08] ))
- * By LPCXpresso v5.2.6 [Build 2137] [2013-07-08]  on Sun Feb 09 16:53:07 MST 2014
+ * (c) Code Red Technologies Ltd, 2008-${year}
+ * (c) NXP Semiconductors 2013-${year}
+ * Generated linker script file for 2014
+ * Created from LPC1114/302 (Mon Apr 28 17:47:27 MDT 2014)
+ * By generic_c.ld on LPCXpresso v7.1.1 [Build 125] [2014-04-01] 
  */
 
 
@@ -27,7 +28,7 @@ SECTIONS
         __section_table_start = .;
         __data_section_table = .;
         LONG(LOADADDR(.data));
-        LONG(    ADDR(.data)) ;
+        LONG(    ADDR(.data));
         LONG(  SIZEOF(.data));
         __data_section_table_end = .;
         __bss_section_table = .;
@@ -45,7 +46,7 @@ SECTIONS
     .text : ALIGN(4)    
     {
          *(.text*)
-        *(.rodata .rodata.*)
+        *(.rodata .rodata.* .constdata .constdata.*)
         . = ALIGN(4);
         
     } > MFlash32
@@ -86,6 +87,7 @@ SECTIONS
 	   FILL(0xff)
 	   _data = . ;
 	   *(vtable)
+	   *(.ramfunc*)
 	   *(.data*)
 	   . = ALIGN(4) ;
 	   _edata = . ;
